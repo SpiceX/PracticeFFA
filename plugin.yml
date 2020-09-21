@@ -1,0 +1,4 @@
+name: PracticeFFA
+main: litek\pffa\PracticeFFA
+version: 1.0-beta
+api: 3.0.0
