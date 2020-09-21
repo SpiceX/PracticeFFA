@@ -64,7 +64,8 @@ class PracticeListener implements Listener
         }
     }
 
-    public function onEntityDamage(EntityDamageEvent $event){
+    public function onEntityDamage(EntityDamageEvent $event): void
+    {
         $playerLevel = $event->getEntity()->getLevel()->getFolderName();
         if ($event->getEntity() instanceof Player){
             $comboLevel = (new Config($this->plugin->getDataFolder() . 'arenas/' . 'combo.yml', Config::YAML))->get('arena_name');

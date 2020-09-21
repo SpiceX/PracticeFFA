@@ -39,7 +39,7 @@ class OperatorCommand extends Command implements PluginIdentifiableCommand
                 return false;
             }
             switch ($args[0]) {
-                case 'test':
+                case 'panel':
                     $this->plugin->getFormManager()->sendGamePanel($sender);
                     break;
                 case 'help':
@@ -98,9 +98,9 @@ class OperatorCommand extends Command implements PluginIdentifiableCommand
                             $entity->close();
                         }
                     }
-                    $nbt = Entity::createBaseNBT($sender->asVector3());
+                    $nbt = Entity::createBaseNBT($sender->asVector3()->add(0,1.5,0));
                     $nbt->setTag($sender->namedtag->getCompoundTag("Skin"));
-                    $nbt->setString("LeaderboardType", $args[1], true);
+                    $nbt->setString("LeaderboardType", strtoupper($args[1]), true);
                     $status = new LeaderboardTops($sender->level, $nbt);
                     $status->spawnToAll();
                     break;

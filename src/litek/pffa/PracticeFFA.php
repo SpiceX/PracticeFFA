@@ -3,6 +3,7 @@
 namespace litek\pffa;
 
 use litek\pffa\command\OperatorCommand;
+use litek\pffa\entity\LeaderboardTops;
 use litek\pffa\form\FormManager;
 use litek\pffa\provider\SQLiteProvider;
 use litek\pffa\provider\YamlProvider;
@@ -14,6 +15,7 @@ use litek\pffa\utils\CpsCounter;
 use litek\pffa\utils\Scoreboard;
 use pocketmine\entity\Effect;
 use pocketmine\entity\EffectInstance;
+use pocketmine\entity\Entity;
 use pocketmine\item\enchantment\Enchantment;
 use pocketmine\item\enchantment\EnchantmentInstance;
 use pocketmine\item\Item;
@@ -50,6 +52,7 @@ class PracticeFFA extends PluginBase
         $this->getScheduler()->scheduleRepeatingTask(new UpdateScoreboard(), 20);
         $this->getScheduler()->scheduleRepeatingTask(new EnderpearlCooldown($this), 20);
         $this->getServer()->getCommandMap()->register('pffa', new OperatorCommand($this));
+        Entity::registerEntity(LeaderboardTops::class, true);
         $comboLevel = (new Config($this->getDataFolder() . 'arenas/' . 'combo.yml', Config::YAML))->get('arena_name');
         $nodebuffLevel = (new Config($this->getDataFolder() . 'arenas/' . 'nodebuff.yml', Config::YAML))->get('arena_name');
         $gappleLevel = (new Config($this->getDataFolder() . 'arenas/' . 'gapple.yml', Config::YAML))->get('arena_name');

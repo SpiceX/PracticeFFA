@@ -257,7 +257,7 @@ class SQLiteProvider extends SQLite3
         } else {
             $top10 = '';
         }
-        return "§b" . ucfirst($gameType) . " Leaderboard" . "\n" . "§9" . strtoupper($gameType) . "\n" . $top1 . $break . $top2 . $break . $top3 . $break . $top4 . $break . $top5 . $break . $top6 . $break . $top7 . $break . $top8 . $break . $top9 . $break . $top10;
+        return "§b" . ucfirst($gameType) . " Leaderboard" . "\n" . "§9" . "§aTop Kills" . "\n" . $top1 . $break . $top2 . $break . $top3 . $break . $top4 . $break . $top5 . $break . $top6 . $break . $top7 . $break . $top8 . $break . $top9 . $break . $top10;
     }
 
     /**
